@@ -3,13 +3,14 @@ OPCOES_COMPILADOR = -lglut -lGLU -lGL -lGLEW -lSOIL -lm
 SRC = ./src
 OBJ = ./obj
 BIN = ./bin
+IMG = ./imagensJogo
 LIBRARIES = ./libraries
 
 $(OBJ)/%.o:	$(SRC)/%.c $(LIBRARIES)/%.h
-	$(CC) -c $< -I $(LIBRARIES) -o $@ $(OPCOES_COMPILADOR)
+	$(CC) -c $< -I $(LIBRARIES) -I $(IMG) -o $@ $(OPCOES_COMPILADOR)
 
 all:	lib
-	$(CC) $(BIN)/v6.c $(OBJ)/*.o -I $(LIBRARIES) -o $(BIN)/executavel $(OPCOES_COMPILADOR)
+	$(CC) $(BIN)/v6.c $(OBJ)/*.o -I $(LIBRARIES) -I $(IMG) -o $(BIN)/executavel $(OPCOES_COMPILADOR)
 
 lib:	\
 	$(OBJ)/desenhaJogo.o	\
