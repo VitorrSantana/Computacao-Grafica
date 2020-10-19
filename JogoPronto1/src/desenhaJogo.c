@@ -76,7 +76,6 @@ int desenhaLink(GLint x, GLint y){
 
 }
 
-
 void desenhaTexto(void *font, char *string){  
   // Exibe caractere a caractere
   while(*string)

@@ -16,13 +16,16 @@ void inicializa(){
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    idTexturaLink = carregaTextura("/home/vitor/Documentos/ComputaçaoGrafica/Trabalho1/cg-master/Jogo/JogoPronto1/imagensJogo/spritelink.png");
-    idTexturaMenu = carregaTextura("/home/vitor/Documentos/ComputaçaoGrafica/Trabalho1/cg-master/Jogo/JogoPronto1/imagensJogo/menu.jpg");
-    idTexturaInimigo1 = carregaTextura("/home/vitor/Documentos/ComputaçaoGrafica/Trabalho1/cg-master/Jogo/JogoPronto1/imagensJogo/spriteinimigo1.png");
-    idTexturaInimigo2 = carregaTextura("/home/vitor/Documentos/ComputaçaoGrafica/Trabalho1/cg-master/Jogo/JogoPronto1/imagensJogo/spriteinimigo2.png");
-    idTexturaInimigo3 = carregaTextura("/home/vitor/Documentos/ComputaçaoGrafica/Trabalho1/cg-master/Jogo/JogoPronto1/imagensJogo/spriteinimigo3.png");
-    idTexturaFundo = carregaTextura("/home/vitor/Documentos/ComputaçaoGrafica/Trabalho1/cg-master/Jogo/JogoPronto1/imagensJogo/fundo.jpg");
-    idTexturaFlecha = carregaTextura("/home/vitor/Documentos/ComputaçaoGrafica/Trabalho1/cg-master/Jogo/JogoPronto1/imagensJogo/flecha.png");
+    idTexturaLink = carregaTextura("spritelink.png");
+    idTexturaMenu = carregaTextura("menu.jpg");
+    idTexturaGameOver = carregaTextura("gameOver.jpeg");
+    idTexturaInimigo1 = carregaTextura("spriteinimigo1.png");
+    idTexturaInimigo2 = carregaTextura("spriteinimigo2.png");
+    idTexturaInimigo3 = carregaTextura("spriteinimigo3.png");
+    idTexturaFundo = carregaTextura("fundo.jpg");
+    idTexturaFlecha = carregaTextura("flecha.png");
+    idTexturaVitoria = carregaTextura("vitoria.png");
+    
     
     for(int i=0;i<NUM_INI_HORI;i++){
         for(int j=0;j<NUM_INI_VERT;j++){

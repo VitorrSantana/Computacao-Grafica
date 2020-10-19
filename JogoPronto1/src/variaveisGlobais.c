@@ -13,10 +13,10 @@
 	int frame_link = 1;
 	int controladorTempo = 0;
 	int valor = 10;
-	int i=0;
-	int j=0;
+	int inimigosMortosPosI = 0;
+	int inimigosMortosPosJ = 0;
 	int gravaJDirecao=-1;
-	int gravaJ=-1,iDirecao=0;
+	int grava_Pos_Ini_MortoJ = -1 , iDirecao = 0;
 	int jDirecao=0;
 	float quadroInimigo = 0.2;
 
@@ -32,6 +32,8 @@
 	GLuint idTexturaMenu;
 	GLuint idTexturaFundo;
 	GLuint idTexturaFlecha;
+	GLuint idTexturaGameOver;
+	GLuint idTexturaVitoria;
 
 	objeto link1;
 	objeto inimigos[9][5];

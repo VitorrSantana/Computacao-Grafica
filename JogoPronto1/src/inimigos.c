@@ -35,8 +35,8 @@ int desenhaInimigo(GLint x, GLint y, GLint j){
         glTranslatef(x, y, 0);
         glBegin(GL_TRIANGLE_FAN);
           glTexCoord2f(0 , 0); glVertex2f(-LINK_LARG/2, -LINK_ALT/2); // v3---v2
-          glTexCoord2f(0.09 , 0); glVertex2f( LINK_LARG/2, -LINK_ALT/2); // |     |
-          glTexCoord2f(0.09 , 0.5); glVertex2f( LINK_LARG/2,  LINK_ALT/2); // |     |
+          glTexCoord2f(0.09, 0); glVertex2f( LINK_LARG/2, -LINK_ALT/2); // |     |
+          glTexCoord2f(0.09, 0.5); glVertex2f( LINK_LARG/2,  LINK_ALT/2); // |     |
           glTexCoord2f(0.0 , 0.5); glVertex2f(-LINK_LARG/2,  LINK_ALT/2); // v0---v1
           //glTexCoord2f(0 , 0); glVertex2f(-INI_LARG/2, -INI_ALT/2); glTexCoord2f(0.09 , 0); glVertex2f( INI_LARG/2, -INI_ALT/2);glTexCoord2f(0.09 , 0.5); glVertex2f( INI_LARG/2,  INI_ALT/2); glTexCoord2f(0.0 , 0.5); glVertex2f(-INI_LARG/2,  INI_ALT/2); // v0---v1
         glEnd();

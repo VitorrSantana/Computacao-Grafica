@@ -31,9 +31,13 @@ void verificaGameOver(){
       inimigos[i][j].raio = INI_LARG;
       int dx = link1.posicao.x - inimigos[i][j].posicao.x;
       int dy = link1.posicao.y - inimigos[i][j].posicao.y;
-      double distancia = sqrt(dx * dx + dy * dy);
+      double distancia = sqrt((dx * dx) + (dy * dy));
       if(distancia < link1.raio + inimigos[i][j].raio) {
         link1.existencia = 0;
+        tela = GAMEOVER;
+      }
+      if(inimigos[i][j].existencia==1 && inimigos[i][j].posicao.y<=0){
+      	link1.existencia = 0;
         tela = GAMEOVER;
       }
     }

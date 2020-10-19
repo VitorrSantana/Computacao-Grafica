@@ -15,82 +15,104 @@
 #include "inicializando.h"
 #include "texturas.h"
 
- int num(){
+ int verificaExistenciaInimigosFinal(){
 
-      for(int i1 = (NUM_INI_HORI-1)-i; i1 >= 0 ;i1--){
 
-        for(int j1 = j;j1< NUM_INI_VERT; j1++){
-        
-        if(inimigos[i1][j1].posicao.x==0  && gravaJ!=j1){
+      for(int posIInimigo = (NUM_INI_HORI-1)-inimigosMortosPosI; posIInimigo >= 0 ;posIInimigo--){
 
-          gravaJ=j1;
-          return 1;
+        for(int posJInimigo = inimigosMortosPosJ; posJInimigo < NUM_INI_VERT; posJInimigo++){
+            
+            if(inimigos[posIInimigo][posJInimigo].posicao.x==0  &&  grava_Pos_Ini_MortoJ !=posJInimigo){
+              grava_Pos_Ini_MortoJ = posJInimigo;
+              return 1;
+            }
+            else{return 0;}    
         }
-        else{return 0;}
-      
-      }
     }
 }
 
-int num1(){
+int verificaExistenciaInimigosInicial(){
 
-      for(int i2 = iDirecao; iDirecao <NUM_INI_HORI ;iDirecao++){
+    for(int posIInimigo = iDirecao; iDirecao <NUM_INI_HORI ;iDirecao++){
 
-        for(int j2 = jDirecao;jDirecao < NUM_INI_VERT; jDirecao++){
-          if(inimigos[i2][j2].posicao.x==0  && gravaJDirecao!=j2){
-            gravaJDirecao=j2;
-            return 1;
+        for(int posJInimigo = jDirecao;jDirecao < NUM_INI_VERT; jDirecao++){
+            if(inimigos[posIInimigo][posJInimigo].posicao.x==0  && gravaJDirecao!=posJInimigo){
+                
+                gravaJDirecao = posJInimigo;
+                return 1;
+            }
+            else{return 0;}
+
         }
-        else{return 0;}
-      
-      }
     }
 }
 
 
 
 void verificaColisaoBorda(){
-      
-      if(direcao == 1){
-        j+=num();
-        if((inimigos[8-i][j].posicao.x + LINK_LARG/2) == LARGURA_MUNDO){
-          direcao*=-1; 
-          contador++;
-          if(contador % 3 == 0){
-            ALTURA_INICIAL_INIMIGOS-=INI_ALT;
-          }
-        }
-        X_INICIAL_INIMIGOS++;
-      }
+    
 
-      if(direcao == -1){
+
+    if(direcao == 1){
+
+        //verifica a Existencia dos Inimigos na Coluna Final
+        inimigosMortosPosJ += verificaExistenciaInimigosFinal();
+        //verifica se Inimigo Vivo  na coluna encostou no final Tela
+        if((inimigos[(NUM_INI_HORI-1)-inimigosMortosPosI][inimigosMortosPosJ].posicao.x +LINK_LARG/2)==LARGURA_MUNDO){
+
+            //Inverte a direcao
+            direcao *= -1 ;   
+            contador ++;
+
+            // desece a Altura Inicial dos Inimigos apos cada tres toque no final da tela
+            if(contador % 3 == 0){
+                ALTURA_INICIAL_INIMIGOS-=INI_ALT;
+            }
+        }
+       
+
+        X_INICIAL_INIMIGOS++;
+    }
+
+    if(direcao == -1){
         
-        jDirecao += num1();
+        jDirecao += verificaExistenciaInimigosInicial();
 
         if((inimigos[iDirecao][jDirecao].posicao.x - LINK_LARG/2) == 0){
-          direcao*=-1; 
-          contador++;
-          if(contador % 3 == 0){
-            ALTURA_INICIAL_INIMIGOS-=INI_ALT;
-          }
+
+            //Inverte a direcao
+            direcao *= -1 ; 
+            contador ++;  
+            // desece a Altura Inicial dos Inimigos apos cada tres toque no final da tela
+            if(contador % 3 == 0){
+                ALTURA_INICIAL_INIMIGOS-=INI_ALT;
+            }
         }
+          
+        
         X_INICIAL_INIMIGOS--;
-      }
-      if(jDirecao==4){
+    }
+
+    
+    //verifica se todos inimigos da coluna Final foram mortos
+    if(inimigosMortosPosJ == 4){
+      
+        inimigosMortosPosJ =0;
+        inimigosMortosPosI ++;
+    }
+    //verifica se todos inimigos da coluana Inicial foram mortos
+    if(jDirecao==4){
+        
         jDirecao=0;
         iDirecao++;
-      }
-
-    if(j==4){
-      j=0;
-      i++;
     }
+      
     if(ALTURA_INICIAL_INIMIGOS<=20){
-    verificaGameOver();
+        verificaGameOver();
     }
   
-  glutPostRedisplay();
-  glutTimerFunc(PERIODO , verificaColisaoBorda, 1);
+    glutPostRedisplay();
+    glutTimerFunc(PERIODO , verificaColisaoBorda, 1);
 }
 
 

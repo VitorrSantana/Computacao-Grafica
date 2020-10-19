@@ -13,7 +13,7 @@
 	#define NUM_INI_VERT 4
 	#define ESPACO_INI 10
 	#define PERIODO 33
-	#define TIRO_LARG 6
+	#define TIRO_LARG 4
 	#define TIRO_ALT 6
 
 	int contador;
@@ -24,8 +24,8 @@
 	int frame_link;
 	int controladorTempo;
 	int valor;
-	int i,j;
-	int gravaJDirecao,gravaJ,iDirecao,jDirecao;
+	int inimigosMortosPosI,inimigosMortosPosJ;
+	int gravaJDirecao,grava_Pos_Ini_MortoJ,iDirecao,jDirecao;
 	float quadroInimigo;
 
 
@@ -40,7 +40,9 @@
 	GLuint idTexturaMenu;
 	GLuint idTexturaFundo;
 	GLuint idTexturaFlecha;
-
+	GLuint idTexturaGameOver;
+	GLuint idTexturaVitoria;
+	
 	typedef struct{
   
   		GLint x,y;

@@ -53,7 +53,20 @@ void mudaTela(){
 
         case GAMEOVER:
 
-            glClear(GL_COLOR_BUFFER_BIT);
+	    glClear(GL_COLOR_BUFFER_BIT);
+
+	    glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, idTexturaGameOver);
+		glBegin(GL_TRIANGLE_FAN);
+		glTexCoord2f(0, 0); glVertex3f( 0, 0,  0);
+		glTexCoord2f(1, 0); glVertex3f( LARGURA_MUNDO, 0,  0);
+		glTexCoord2f(1, 1); glVertex3f( LARGURA_MUNDO,  ALTURA_MUNDO,  0);
+		glTexCoord2f(0, 1); glVertex3f( 0,  ALTURA_MUNDO,  0);
+		glEnd();
+	    glDisable(GL_TEXTURE_2D);
+
+	    glutSwapBuffers();
+            /*glClear(GL_COLOR_BUFFER_BIT);
             glColor3f(1,0,0);
 
             glPushMatrix();
@@ -63,15 +76,29 @@ void mudaTela(){
                 glLineWidth(5); // define a espessura da linha
                 desenhaTexto(GLUT_STROKE_ROMAN,"GAME OVER !!!");
                 glPopMatrix();
-            glPushMatrix();
+            glPushMatrix();*/
 
             desenhaLink(link1.posicao.x , link1.posicao.y);
             glutSwapBuffers();
         break;
 
         case VITORIA:
+		
+	    glClear(GL_COLOR_BUFFER_BIT);
 
-            glClear(GL_COLOR_BUFFER_BIT);
+	    glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, idTexturaVitoria);
+		glBegin(GL_TRIANGLE_FAN);
+		glTexCoord2f(0, 0); glVertex3f( 0, 0,  0);
+		glTexCoord2f(1, 0); glVertex3f( LARGURA_MUNDO, 0,  0);
+		glTexCoord2f(1, 1); glVertex3f( LARGURA_MUNDO,  ALTURA_MUNDO,  0);
+		glTexCoord2f(0, 1); glVertex3f( 0,  ALTURA_MUNDO,  0);
+		glEnd();
+	    glDisable(GL_TEXTURE_2D);
+
+	    glutSwapBuffers();
+	
+           /* glClear(GL_COLOR_BUFFER_BIT);
             glColor3f(1,0,0);
 
             glPushMatrix();
@@ -81,9 +108,9 @@ void mudaTela(){
                 glLineWidth(5); // define a espessura da linha
                 desenhaTexto(GLUT_STROKE_ROMAN,"VITORIA !!!");
                 glPopMatrix();
-            glPushMatrix();
+            glPushMatrix();*/
 
-            glutSwapBuffers();
+            //glutSwapBuffers();
         break;
 
         default:

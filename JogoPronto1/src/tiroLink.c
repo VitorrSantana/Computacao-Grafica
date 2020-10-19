@@ -44,10 +44,10 @@ int desenhaTiro(GLint x, GLint y){
     glPushMatrix();                 // Importante!!
       glTranslatef(x, y, 0);
       glBegin(GL_TRIANGLE_FAN);
-          glTexCoord2f(0 , 0); glVertex2f(-TIRO_LARG/2, -TIRO_ALT/2); // v3---v2
-          glTexCoord2f(1 , 0); glVertex2f( TIRO_LARG/2, -TIRO_ALT/2); // |     |
-          glTexCoord2f(1 , 1); glVertex2f( TIRO_LARG/2,  TIRO_ALT/2); // |     |
-          glTexCoord2f(0 , 1); glVertex2f(-TIRO_LARG/2,  TIRO_ALT/2); // v0---v1
+          glTexCoord2f(0 , 0); glVertex2f(-TIRO_LARG/3, -TIRO_ALT/2); // v3---v2
+          glTexCoord2f(1 , 0); glVertex2f( TIRO_LARG/3, -TIRO_ALT/2); // |     |
+          glTexCoord2f(1 , 1); glVertex2f( TIRO_LARG/3,  TIRO_ALT/2); // |     |
+          glTexCoord2f(0 , 1); glVertex2f(-TIRO_LARG/3,  TIRO_ALT/2); // v0---v1
       glEnd();
       glEnd();
     glPopMatrix();                   // Importante!!
