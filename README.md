@@ -1,2 +1,2 @@
-# Trabalhos
-Jogo  desenvolvido em linguagem C  utilizando a biblioteca  opengl
+#Trabalho da disciplina de COMPUTAÇÃO gRAFIC
+**INTEGRANTES : ** ALEXANDRE rOQUE e vITOR  sANTANA
