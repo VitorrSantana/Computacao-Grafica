@@ -1,2 +1,2 @@
-#Trabalho da disciplina de COMPUTAÇÃO gRAFIC
+# Trabalho da disciplina de COMPUTAÇÃO GRÁFICA
 
